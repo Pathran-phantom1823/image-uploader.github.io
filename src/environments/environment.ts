@@ -5,12 +5,14 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyBmNkRGMwyD_Z6sPYY3FtKI4H9w7kUzYi4",
-    authDomain: "cohesive-apogee-95023.firebaseapp.com",
-    databaseURL: "https://cohesive-apogee-95023.firebaseio.com",
-    projectId: "cohesive-apogee-95023",
-    storageBucket: "cohesive-apogee-95023.appspot.com",
-    messagingSenderId: "546552200902"
+   firebase: {
+    apiKey: "AIzaSyDiqPQNMuBRQdQp5jN5ZZ7CPNGn74jmw2c",
+    authDomain: "renthing-e29ac.firebaseapp.com",
+    databaseURL: "https://renthing-e29ac.firebaseio.com",
+    projectId: "renthing-e29ac",
+    storageBucket: "renthing-e29ac.appspot.com",
+    messagingSenderId: "116308839525",
+    appId: "1:116308839525:web:6b7eaca8c06426144a8a8c",
+    measurementId: "G-34T1G4X9VV"
   }
 };

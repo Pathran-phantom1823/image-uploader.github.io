@@ -1,13 +1,17 @@
 import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/toPromise';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from "@angular/fire/firestore";
+
 import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
 
   constructor(
-   public afAuth: AngularFireAuth
+   public afAuth: AngularFireAuth,
+   public db: AngularFirestore,
+   
  ){}
 
   doFacebookLogin(){
@@ -56,6 +60,12 @@ export class AuthService {
 
   doRegister(value){
     return new Promise<any>((resolve, reject) => {
+      this.db.collection("users").add({
+        username:value.username,
+        email:value.email,
+        password:value.password,
+        image:value.image
+      })
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
       .then(res => {
         resolve(res);

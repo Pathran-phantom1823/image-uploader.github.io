@@ -8,11 +8,11 @@ import { FirebaseUserModel } from '../core/user.model';
 import { element } from '@angular/core/src/render3';
 
 @Component({
-  selector: 'page-user',
-  templateUrl: 'user.component.html',
-  styleUrls: ['user.scss']
+  selector: 'page-header',
+  templateUrl: 'header.component.html',
+  styleUrls: ['header.scss']
 })
-export class UserComponent implements OnInit{
+export class HeaderComponent implements OnInit{
 
   slide= false
   user: FirebaseUserModel = new FirebaseUserModel();

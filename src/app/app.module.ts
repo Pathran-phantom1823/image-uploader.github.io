@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { UserResolver } from './user/user.resolver';
+import { HeaderComponent } from "./header/header.component";
+import { AboutComponent } from "./about/about.component";
 import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
@@ -23,7 +25,9 @@ import { AppComponent } from './app.component';
     AppComponent,
     LoginComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    AboutComponent 
   ],
   imports: [
     BrowserModule,

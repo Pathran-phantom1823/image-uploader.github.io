@@ -26,6 +26,10 @@ export class UserService {
     })
   }
 
+  getUsers(){
+    return this.db.collection('users').snapshotChanges()
+  }
+
   updateCurrentUser(value){
     return new Promise<any>((resolve, reject) => {
       var user = firebase.auth().currentUser;

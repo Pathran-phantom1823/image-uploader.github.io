@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse  navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span style="font-size:30px;cursor:pointer;color:white" id="openner">Patrick's Gallery</span>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li></li>
+            <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+
+      <div class="sidenav">
+        <a><img [src]="image" class="img-circle" id="img" [title]="profile"></a>
+        <hr>
+        <a href="#">Me</a>
+        <a href="#">Anime</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+      </div>
+</nav>

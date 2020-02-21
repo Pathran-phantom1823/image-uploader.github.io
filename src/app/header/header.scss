@@ -16,6 +16,10 @@
     height: 100vh;
     background-color: aliceblue
   }
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
   
   #column1{
     width: 30%;
@@ -30,14 +34,14 @@
   }
   
   #img{
-    width:70%;
+    width:5vh;
     height:auto;
   
   }
   
   .sidenav {
     height: 100%;
-    width: 200px;
+    // width: 200px;
     position: fixed;
     z-index: 1;
     top: 0.5;

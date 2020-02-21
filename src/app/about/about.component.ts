@@ -12,7 +12,29 @@ import { element } from '@angular/core/src/render3';
   templateUrl: 'about.component.html',
   styleUrls: ['about.scss']
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  profile = ""
+  users:Array<any>
+  image= ''
+  constructor(private userService:UserService){}
 
- 
+ ngOnInit():void{
+  this.userService.getUsers().subscribe(res=>{
+    this.users = res
+    console.log(this.users);
+    this.users.forEach(element=>{
+      this.userService.getCurrentUser().then(res=>{
+        this.profile = res.email
+        console.log(element.payload.doc._document.proto.fields.email.stringValue);
+        if(this.profile == element.payload.doc._document.proto.fields.email.stringValue){
+          this.image = element.payload.doc._document.proto.fields.image.stringValue
+          console.log(this.image);
+          
+        }
+    })
+     
+    })
+ })
 }
+}
+ 

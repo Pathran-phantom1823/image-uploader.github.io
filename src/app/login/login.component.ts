@@ -12,6 +12,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   errorMessage: string = '';
+  User:Array<any> =[]
 
   constructor(
     public authService: AuthService,
@@ -45,6 +46,9 @@ export class LoginComponent {
   tryGoogleLogin(){
     this.authService.doGoogleLogin()
     .then(res => {
+      this.User.push(res)
+      console.log(this.User);
+      
       this.router.navigate(['/user']);
     })
   }

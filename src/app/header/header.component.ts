@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,13 +13,14 @@ import { element } from '@angular/core/src/render3';
   styleUrls: ['header.scss']
 })
 export class HeaderComponent implements OnInit{
-
+  @Input() User: Array<any>
   slide= false
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
   profile = ""
   users:Array<any>
   image= ''
+  owner=""
 
   constructor(
     public userService: UserService,
@@ -32,23 +33,35 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(res=>{
-      this.users = res
-      console.log(this.users);
-      this.users.forEach(element=>{
-        this.userService.getCurrentUser().then(res=>{
-          this.profile = res.email
-          console.log(element.payload.doc._document.proto.fields.email.stringValue);
-          if(this.profile == element.payload.doc._document.proto.fields.email.stringValue){
-            this.image = element.payload.doc._document.proto.fields.image.stringValue
-            console.log(this.image);
-            
-          }
-      })
-       
-      })
-    })
-   
+    this.userService.getCurrentUser().then(res=>{
+      // this.owner = res
+      if(res.email == 'johnpatrick.cabia-an@student.passerellesnumeriques.org' || res.email == 'patrick.pathran23@gmail.com'){
+        this.image = res.photoURL
+        console.log(this.image);
+        
+      }
+      else{
+        this.userService.getUsers().subscribe(res=>{
+          this.users = res
+          // console.log(this.users);
+          this.users.forEach(element=>{
+            this.userService.getCurrentUser().then(res=>{
+              console.log('current user',res)
+              this.profile = res.email
+              // console.log(element.payload.doc._document.proto.fields.email.stringValue);
+              if(this.profile == element.payload.doc._document.proto.fields.email.stringValue){
+                this.image = element.payload.doc._document.proto.fields.image.stringValue
+                // console.log(this.image);
+              }else{
+    
+              }
+          })
+           
+          })
+        })
+      }
+    });
+    
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../core/user.service";
-import * as AOS from 'aos';
 
 @Component({
   selector: "page-about",
@@ -19,7 +18,14 @@ export class AboutComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    AOS.init();
+    this.userService.getCurrentUser().then(res=>{
+      // this.owner = res
+      if(res.email == 'johnpatrick.cabia-an@student.passerellesnumeriques.org' || res.email == 'patrick.pathran23@gmail.com'){
+        this.image = res.photoURL
+        console.log(this.image);
+        
+      }
+      else{
     this.userService.getUsers().subscribe(res => {
       this.users = res;
       console.log(this.users);
@@ -40,6 +46,8 @@ export class AboutComponent implements OnInit {
         });
       });
     });
+  }
+})
   }
 
   goToAnime(){

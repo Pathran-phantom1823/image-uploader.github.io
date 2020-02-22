@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../core/user.service';
+  import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,8 +13,7 @@ import { element } from '@angular/core/src/render3';
   styleUrls: ['user.scss']
 })
 export class UserComponent implements OnInit{
-
-  slide= false
+  isShow = false
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
   profile = ""
@@ -57,13 +56,7 @@ export class UserComponent implements OnInit{
       }
     })
   }
-   
-  showSideNav(){
-    this.slide = true
-  }
-  hideSideNav(){
-    this.slide = false
-  }
+  
 
   createForm(name) {
     this.profileForm = this.fb.group({

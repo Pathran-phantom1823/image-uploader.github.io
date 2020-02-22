@@ -41,4 +41,13 @@ export class UserService {
       }, err => reject(err))
     })
   }
+
+  uploadImage(value){
+    return this.db.collection('uploads').add({
+      image:value.image
+    })
+  }
+  getImages(){
+    return this.db.collection('uploads').snapshotChanges()
+  }
 }

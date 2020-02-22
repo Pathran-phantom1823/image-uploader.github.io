@@ -1,6 +1,62 @@
-<div class="container">
-<span class="control-fileupload">
-        <label for="file">Upload Picture :</label>
-        <input type="file" id="file">
-</span>
+<section class="aboutme">
+  <page-about (show)="isShow = true"></page-about>
+</section>
+<!-- <button (click)="back()">Back</button> -->
+<div class="container" *ngIf="isShow">
+  <span class="control-fileupload">
+        
+    <!-- <form [formGroup]="imageForm" (ngSubmit)="upload(imageForm.value)">
+        <label for="file">Upload Picture:</label>
+        <input
+          type="file"
+          id="file"
+          (change)="onUploadOutput($event)"
+          formControlName="image"
+        />
+        <button>Upload</button>
+    </form> -->
+    <div class="container">
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                  
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Upload Image</h4>
+                      </div>
+                      <div class="modal-body">
+                                <img [src]="downloadURL | async" class="img"/>
+                                <form [formGroup]="imageForm" (ngSubmit)="upload(imageForm.value)">
+                                        <label for="file">Upload Picture:</label>
+                                        <input
+                                                type="file"
+                                                id="file"
+                                                (change)="onUploadOutput($event)"
+                                                formControlName="image"
+                                        />
+                                        <button>Upload</button>
+                                </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </div>
+  </span>
+  <div class="flex-container">
+                <div class="well well-lg" id="add" style="height:30%;" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-plus" id="icon" style="font-size:50px;vertical-align: middle;"></span>
+                </div>
+          <div *ngFor="let each of data">
+                <div class="card">
+                        <img id="myImg" [src]="each.payload.doc.data().image">
+                </div>
+          </div>
+  </div>
 </div>

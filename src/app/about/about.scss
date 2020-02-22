@@ -10,9 +10,10 @@
   }
 
   #img{
-      width: 50%
+      width: 100%;
+      height: auto
   }
-
+  
   h1{
       display: flex;
       justify-content: center;
@@ -39,7 +40,18 @@
     font-size: 18px;
   }
   
+  #aboutme{
+    justify-content: center;
+    display: flex;
+  }
 
   button:hover, a:hover {
     opacity: 0.7;
+  }
+
+  #rows{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
   }

@@ -1,11 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UserService } from "../core/user.service";
-import { AuthService } from "../core/auth.service";
-import { ActivatedRoute } from "@angular/router";
-import { Location } from "@angular/common";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { FirebaseUserModel } from "../core/user.model";
-import { element } from "@angular/core/src/render3";
+import * as AOS from 'aos';
 
 @Component({
   selector: "page-about",
@@ -14,13 +9,17 @@ import { element } from "@angular/core/src/render3";
 })
 export class AboutComponent implements OnInit {
   profile = "";
+  showBtn = false
   users: Array<any>;
   image = "";
   @Output() show = new EventEmitter();
+  @Output() shows = new EventEmitter();
+  
   isShow: boolean = false;
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    AOS.init();
     this.userService.getUsers().subscribe(res => {
       this.users = res;
       console.log(this.users);
@@ -46,5 +45,11 @@ export class AboutComponent implements OnInit {
   goToAnime(){
     this.show.emit(this.isShow)
     this.isShow = true
+    this.showBtn = true
+  }
+
+  hideAnime(){
+    this.shows.emit(this.isShow)
+    this.showBtn = false
   }
 }

@@ -1,5 +1,21 @@
-<nav class="navbar navbar-inverse  navbar-fixed-top">
-        <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#myPage">Patrick's Gallery</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a><img [src]="image" class="img-circle" id="img" [title]="profile"></a></li>
+              <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+        <!-- <div class="container-fluid">
           <div class="navbar-header">
             <span style="font-size:30px;cursor:pointer;color:white" id="openner">Patrick's Gallery</span>
           </div>
@@ -7,5 +23,5 @@
             <li><a><img [src]="image" class="img-circle" id="img" [title]="profile"></a></li>
             <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
           </ul>
-        </div>
+        </div> -->
 </nav>

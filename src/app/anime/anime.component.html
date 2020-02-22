@@ -1,5 +1,5 @@
 <section class="aboutme">
-  <page-about (show)="isShow = true"></page-about>
+  <page-about (show)="isShow = true" (shows) = "isShow = false"></page-about>
 </section>
 <!-- <button (click)="back()">Back</button> -->
 <div class="container" *ngIf="isShow">
@@ -27,10 +27,11 @@
                         <h4 class="modal-title">Upload Image</h4>
                       </div>
                       <div class="modal-body">
-                                <img [src]="downloadURL | async" class="img"/>
+                                <img [src]="downloadURL | async" class="img" alt="image"/>
                                 <form [formGroup]="imageForm" (ngSubmit)="upload(imageForm.value)">
-                                        <label for="file">Upload Picture:</label>
+                                        <label for="file" class="btn-2">Upload Picture:</label>
                                         <input
+                                                class="form-control"
                                                 type="file"
                                                 id="file"
                                                 (change)="onUploadOutput($event)"
@@ -40,6 +41,7 @@
                                 </form>
                       </div>
                       <div class="modal-footer">
+                        <button type="button" class="btn btn" data-dismiss="modal" (click)="cancel()">Cancel</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
@@ -49,14 +51,20 @@
                 
               </div>
   </span>
-  <div class="flex-container">
-                <div class="well well-lg" id="add" style="height:30%;" data-toggle="modal" data-target="#myModal">
-                        <span class="glyphicon glyphicon-plus" id="icon" style="font-size:50px;vertical-align: middle;"></span>
+  <div class="container">
+        <div class="row">
+                <div class="col-md-4">
+                      <div class="thumbnail">
+                                <div class="cssCircle plusSign" data-toggle="modal" data-target="#myModal" title="Add Image">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                </div>
+                      </div>  
                 </div>
-          <div *ngFor="let each of data">
-                <div class="card">
-                        <img id="myImg" [src]="each.payload.doc.data().image">
+          <div class="col-md-4" *ngFor="let each of data">
+                <div class="thumbnail">
+                        <img id="myImg" [src]="each.payload.doc.data().image" style="width:100%">
                 </div>
           </div>
+        </div>
   </div>
 </div>

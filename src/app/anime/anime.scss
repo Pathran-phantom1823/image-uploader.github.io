@@ -2,6 +2,10 @@
 img{
   width: auto;
   height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 .aboutme{
@@ -26,13 +30,59 @@ img{
   font-size: 30px;
 }
 
-#add{
-  background-color: azure;
-  width: 12%;
-  height: 50%
+form{
+  text-align: center;
+
 }
 
-#add:hover{
-  background-color: rgba($color: #000000, $alpha: 0.4);
+
+.cssCircle span{
+    margin: 0;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
 }
+
+.cssCircle {
+  /*   -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px; */
+    
+    
+    width: 100%;
+    height: 200px;
+    padding: 0px;
+    
+    background: #779BCA;
+    border: 1px solid #003580;
+    color: #003580;
+    text-align: center;
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -ms-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+    transition: color 0.2s linear;
+    
+    font: 13px Arial, sans-serif
+  }
+  
+  .cssCircle:hover {
+    background: #3F69A0 ;
+    cursor: pointer;
+  }
+  
+
+  
+  .plusSign {
+    line-height: 1.1em;
+  }
+  
+  
+  .plusSign:hover {
+    color: white;
+  }
 

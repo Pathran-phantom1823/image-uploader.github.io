@@ -54,30 +54,30 @@ export class RegisterComponent {
    }
 
    onUploadOutput(event) {
-    const filename = event.target.files[0].name;
-    // if (event.target.files && event.target.files[0]) {
-    this.file = event.target.files[0];
-    const filePath = "profiles/" + filename;
-    const fileRef = this.storage.ref(filePath);
-    this.task = fileRef.put(this.file);
-   
-    this.uploadPercent = this.task.percentageChanges();
-    this.task
-      .snapshotChanges()
-      .pipe(
-        finalize(() => {
-          this.downloadURL = fileRef.getDownloadURL()
-          fileRef.getDownloadURL().subscribe(res=>{
-            console.log(res);
-            this.URL = res
-            this.registerForm.value.image = this.URL
-          });
-        })
-      )
-      .subscribe(() => {});
+      const filename = event.target.files[0].name;
+      // if (event.target.files && event.target.files[0]) {
+      this.file = event.target.files[0];
+      const filePath = "profiles/" + filename;
+      const fileRef = this.storage.ref(filePath);
+      this.task = fileRef.put(this.file);
+    
+      this.uploadPercent = this.task.percentageChanges();
+      this.task
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            this.downloadURL = fileRef.getDownloadURL()
+            fileRef.getDownloadURL().subscribe(res=>{
+              console.log(res);
+              this.URL = res
+              this.registerForm.value.image = this.URL
+            });
+          })
+        )
+        .subscribe(() => {});
 
-    // this.img = URL.createObjectURL(this.file)
-  }
+      // this.img = URL.createObjectURL(this.file)
+    }
 
   //  tryFacebookLogin(){
   //    this.authService.doFacebookLogin()

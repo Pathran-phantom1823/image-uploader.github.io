@@ -95,12 +95,16 @@ export class AnimeComponent implements OnInit {
       
     })
   }
-  back(){
-    this.isShow = false
+  cancel(){
+    this.downloadURL = null;
+    this.imageForm.reset()
   }
+
 
   upload(value){
     this.userService.uploadImage(value).then(res=>{
+      this.imageForm.reset()
+      this.downloadURL = null
       console.log(res);
       
     })

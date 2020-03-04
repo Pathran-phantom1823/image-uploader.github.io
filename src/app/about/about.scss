@@ -55,3 +55,23 @@
     margin-right: auto;
 
   }
+
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }
+
+  .btn{
+    height: 50px;
+    background-color: rgb(51, 133, 255);
+    color: white;
+    font-size: 20px;
+    font-stretch: narrower;
+    font-weight: 100px;
+    font-family: fantasy;
+  }
+  
+  #exTab3 .tab-content {
+    color : white;
+    padding : 5px 15px;
+  }
+  

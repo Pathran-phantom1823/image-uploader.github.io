@@ -1,23 +1,10 @@
-<!-- <section class="aboutme">
-  <page-about></page-about>
-</section> -->
-<!-- <button (click)="back()">Back</button> -->
+
 <div class="container">
   <span class="control-fileupload">
         
-    <!-- <form [formGroup]="imageForm" (ngSubmit)="upload(imageForm.value)">
-        <label for="file">Upload Picture:</label>
-        <input
-          type="file"
-          id="file"
-          (change)="onUploadOutput($event)"
-          formControlName="image"
-        />
-        <button>Upload</button>
-    </form> -->
     <div class="container">
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="Modal" role="dialog">
                   <div class="modal-dialog">
                   
                     <!-- Modal content-->
@@ -37,7 +24,7 @@
                                                 (change)="onUploadOutput($event)"
                                                 formControlName="image"
                                         />
-                                        <button>Upload</button>
+                                        <button class="btn btn-primary">Upload</button>
                                 </form>
                       </div>
                       <div class="modal-footer">
@@ -55,7 +42,7 @@
         <div class="row">
                 <div class="col-md-4">
                       <div class="thumbnail">
-                                <div class="cssCircle plusSign" data-toggle="modal" data-target="#myModal" title="Add Image">
+                                <div class="cssCircle plusSign" data-toggle="modal" data-target="#Modal" title="Add Image">
                                         <span class="glyphicon glyphicon-plus"></span>
                                 </div>
                       </div>  

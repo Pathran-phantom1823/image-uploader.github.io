@@ -52,4 +52,15 @@ export class UserService {
   getImages(){
     return this.db.collection('uploads').snapshotChanges()
   }
+
+  uploadMyImage(value){
+    console.log(value);
+    
+    return this.db.collection('myImage').add({
+      image:value.image
+    })
+  }
+  getMyImages(){
+    return this.db.collection('myImage').snapshotChanges()
+  }
 }

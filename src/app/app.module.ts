@@ -14,6 +14,7 @@ import { UserResolver } from './user/user.resolver';
 import { HeaderComponent } from "./header/header.component";
 import { AboutComponent } from "./about/about.component";
 import { AnimeComponent } from "./anime/anime.component";
+import { MeComponent } from "./me/me.component";
 import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
@@ -29,7 +30,8 @@ import { AppComponent } from './app.component';
     RegisterComponent,
     HeaderComponent,
     AboutComponent,
-    AnimeComponent 
+    AnimeComponent,
+    MeComponent 
   ],
   imports: [
     BrowserModule,

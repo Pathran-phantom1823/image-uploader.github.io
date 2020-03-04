@@ -6,10 +6,7 @@
         <img [src]="downloadURL | async" class="img"/>
         <div class="form-group">
             <label>Username:</label>
-            <input type="text" formControlName="username" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-            <div *ngIf="submitted && f.username.errors" class="alert alert-danger">
-                <div *ngIf="f.username.errors.required">User Name is required</div>
-            </div>  
+            <input type="text" formControlName="username" class="form-control" >
         </div>
         <div class="form-group">
           <label>Email address</label>
@@ -22,8 +19,7 @@
           <label class="success">{{successMessage}}</label>
         </div>
         <div class="form-group">
-            <input type="file" ref="file" (change)="onUploadOutput($event)" formControlName="image"
-            [ngClass]="{ 'is-invalid': submitted && f.image.errors }">
+            <input type="file" ref="file" (change)="onUploadOutput($event)" formControlName="image">
         </div>
         <button type="submit" class="btn btn-default">Register</button>
       </form>

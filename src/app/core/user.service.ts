@@ -43,6 +43,8 @@ export class UserService {
   }
 
   uploadImage(value){
+    console.log(value);
+    
     return this.db.collection('uploads').add({
       image:value.image
     })
